@@ -12,7 +12,7 @@ Clients can interact with the server to request and receive data, along with sen
 
 The server is responsible to fetch data from the database and pass them to clients or write data into it. It is also responssible to handle user messages, validating them, and forwarding it to the broker.
 
-The broker is responsible to broadcast a message received from the server to the destined recipients, be it individual or a group chat. This feature may need an event-driven publish-subscribe communication to support the real-time and multi-recipient requirement to be implemented.
+The broker is responsible to broadcast a message received from the server to the destined recipients, be it individual or a group chat. This feature may need an event-driven and publish-subscribe communication to support the real-time and multi-recipient requirement to be implemented.
 
 The database, is used to store messages, allowing them to persist thus enable users to view past messages.
 
