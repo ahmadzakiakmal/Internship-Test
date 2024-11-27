@@ -128,6 +128,7 @@ export default function Home() {
         comments={channels[activeChannel]?.comments}
         participants={channels[activeChannel]?.room?.participant}
         updateComments={updateComments}
+        allowChat={channels.length > 0}
       />
     </main>
   );

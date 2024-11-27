@@ -9,12 +9,14 @@ interface Props {
   comments: Comment[];
   participants: User[];
   updateComments: (newComment: Comment) => any;
+  allowChat: boolean;
 }
 
 export default function ChatScreen({
   comments,
   participants,
   updateComments,
+  allowChat = false
 }: Props) {
   const [message, setMessage] = useState<string>("");
   const [scrollTrigger, setScrollTrigger] = useState<boolean>(false);
@@ -30,7 +32,11 @@ export default function ChatScreen({
   }, [scrollTrigger, scrollableSectionRef]);
 
   const sendMessage = () => {
-    console.log("Submit");
+    const messageIsEmpty = message === "";
+    if (messageIsEmpty) {
+      alert("Message is empty");
+      return;
+    }
     updateComments({
       id: Number(new Date().getMilliseconds()),
       message,
@@ -85,10 +91,12 @@ export default function ChatScreen({
                 sendMessage();
               }
             }}
+            disabled={!allowChat}
             onChange={(e) => {
               setMessage(e.target.value);
             }}
-            className="text-black flex-grow-[100%] flex-1 h-8 p-1 resize-none rounded-[5px] text-[14px]"
+            className={"text-black flex-grow-[100%] flex-1 h-8 p-1 resize-none rounded-[5px] text-[14px] placeholder:text-white " + (allowChat ? "" : "cursor-not-allowed")}
+            placeholder={allowChat ? "Write a message..." : "Loading..."}
           />
           <button
             type="submit"
