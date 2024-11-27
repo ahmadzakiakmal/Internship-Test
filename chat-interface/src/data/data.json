@@ -73,8 +73,8 @@
             "role": 1
           },
           {
-            "id": "customer@mail.com",
-            "name": "king customer",
+            "id": "ahmadzaki@mail.com",
+            "name": "Ahmad Zaki",
             "role": 2
           }
         ]
@@ -83,26 +83,20 @@
         {
           "id": 885512,
           "type": "text",
-          "message": "Selamat malam",
-          "sender": "customer@mail.com"
+          "message": "Selamat pagi",
+          "sender": "ahmadzaki@mail.com"
         },
         {
           "id": 885513,
           "type": "text",
-          "message": "Malam",
-          "sender": "agent@mail.com"
-        },
-        {
-          "id": 885514,
-          "type": "text",
-          "message": "Ada yang bisa saya bantu?",
+          "message": "Pagi, ada yang bisa saya bantu?",
           "sender": "agent@mail.com"
         },
         {
           "id": 885515,
           "type": "text",
-          "message": "Saya ingin mengirimkan bukti pembayaran, karena diaplikasi selalu gagal",
-          "sender": "customer@mail.com"
+          "message": "Saya ingin mengirimkan bukti pembayaran, karena di aplikasi selalu gagal",
+          "sender": "ahmadzaki@mail.com"
         },
         {
           "id": 885516,

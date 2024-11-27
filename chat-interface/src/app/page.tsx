@@ -5,31 +5,8 @@ import { useEffect, useState } from "react";
 import EditIcon from "@/../public/edit.svg";
 import DropdownIcon from "@/../public/dropdown.png";
 import RoleBadge from "@/components/RoleBadge";
-
-interface Comment {
-  id: number;
-  message: string;
-  sender: string;
-  type: "text" | "image" | "video";
-}
-
-interface User {
-  id: string;
-  name: string;
-  role: 0 | 1 | 2; // 0 = Admin | 1 = Agent | 2 = Customer
-}
-
-interface Room {
-  name: string;
-  id: number;
-  image_url: string;
-  participant: User[];
-}
-
-interface Channel {
-  room: Room;
-  comments: Comment[];
-}
+import ChatScreen from "@/components/ChatScreen";
+import { Channel } from "@/data/types";
 
 export default function Home() {
   const [channels, setChannels] = useState<Channel[]>([]);
@@ -38,8 +15,8 @@ export default function Home() {
     GetData();
   }, []);
   return (
-    <main className="bg-white min-h-screen font-lato">
-      <aside className="bg-gradient-to-bl from-purple from-30% to-[#3D108F] w-[320px] min-h-screen flex">
+    <main className="bg-white min-h-screen font-lato flex">
+      <aside className="bg-purple w-[320px] min-h-screen flex">
         <section className="flex flex-col py-5 px-4 gap-4 box-border border-r border-white/30 flex-shrink-0">
           {channels.length > 0 &&
             channels.map((channel, index) => {
@@ -83,7 +60,7 @@ export default function Home() {
             ) : (
               <div className="w-full h-8 bg-[#DEDEDE] animate-pulse rounded-[5px]" />
             )}
-            <button className="bg-white size-7 rounded-full relative grid place-items-center hover:bg-[#DEDEDE]">
+            <button className="bg-white flex-shrink-0 size-7 rounded-full relative grid place-items-center hover:bg-[#DEDEDE]">
               <Image
                 src={EditIcon}
                 alt="Edit Icon"
@@ -131,6 +108,8 @@ export default function Home() {
           </div>
         </section>
       </aside>
+
+      <ChatScreen comments={channels[activeChannel]?.comments} participants={channels[activeChannel]?.room?.participant} />
     </main>
   );
 
