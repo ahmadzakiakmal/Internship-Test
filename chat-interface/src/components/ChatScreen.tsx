@@ -15,15 +15,15 @@ export default function ChatScreen({comments, participants}: Props) {
     console.log("Submit");
   };
   return (
-    <main className="bg-blue-500/20 min-h-screen w-full relative flex flex-col">
-      <section className="bg-white flex-grow-[100%] flex-1 p-5">
+    <main className="bg-blue-500/20 min-h-screen max-h-screen w-full relative flex flex-col">
+      <section className="bg-white flex-grow-[100%] flex-1 p-5 overflow-y-auto pb-[100px]">
         {comments?.map((comment) => {
             return(
                 <ChatBubble key={comment.id} comment={comment} participants={participants} />
             )
         })}
       </section>
-      <section className="bg-purple w-full flex-shrink-0">
+      <section className="bg-purple w-full flex-shrink-0 absolute bottom-0">
         <form
           onSubmit={(e: FormEvent) => {
             e.preventDefault();

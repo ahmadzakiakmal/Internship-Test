@@ -60,7 +60,7 @@
       "room": {
         "name": "Product B",
         "id": 12457,
-        "image_url": "https://avatars.githubusercontent.com/u/117969048?v=4",
+        "image_url": "https://avatars.githubusercontent.com/u/144903134?s=400&u=1f6f214eb767a4f5abe44162bc741fa2a3b862a0&v=4",
         "participant": [
           {
             "id": "admin@mail.com",
@@ -102,6 +102,19 @@
           "id": 885516,
           "type": "text",
           "message": "Baik, silahkan kirimkan lampiran bukti pembayarannya",
+          "sender": "agent@mail.com"
+        },
+        {
+          "id": 885517,
+          "type": "image",
+          "message": "Berikut bukti pembayarannya",
+          "sender": "ahmadzaki@mail.com",
+          "content": "https://avatars.githubusercontent.com/u/144903134?s=400&u=1f6f214eb767a4f5abe44162bc741fa2a3b862a0&v=4"
+        },
+        {
+          "id": 885518,
+          "type": "text",
+          "message": "Baik, bukti sudah kami terima",
           "sender": "agent@mail.com"
         }
       ]

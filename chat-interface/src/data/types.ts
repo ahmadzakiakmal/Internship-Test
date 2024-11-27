@@ -3,6 +3,7 @@ export interface Comment {
   message: string;
   sender: string;
   type: "text" | "image" | "video";
+  content: string;
 }
 
 export interface User {
