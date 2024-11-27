@@ -113,6 +113,13 @@
         },
         {
           "id": 885518,
+          "type": "video",
+          "message": "Ini bukti video yang lebih jelas",
+          "sender": "ahmadzaki@mail.com",
+          "content": "https://github.com/ahmadzakiakmal/Internship-Test/raw/refs/heads/main/assets/sample_video.mp4"
+        },
+        {
+          "id": 885519,
           "type": "text",
           "message": "Baik, bukti sudah kami terima",
           "sender": "agent@mail.com"

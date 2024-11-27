@@ -34,6 +34,7 @@ export default function ChatBubble({ comment, participants }: Props) {
             className="w-[200px] rounded-[10px] outline outline-purple outline-1 mt-1"
           />
         )}
+        {hasVideo && <video controls src={comment.content} >Unable to play media</video>}
       </div>
     </main>
   );

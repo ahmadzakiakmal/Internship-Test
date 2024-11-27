@@ -27,7 +27,7 @@ export default function ChatScreen({
       scrollableSectionRef.current.scrollTop =
         scrollableSectionRef.current.scrollHeight;
     }
-  }, [scrollTrigger]);
+  }, [scrollTrigger, scrollableSectionRef]);
 
   const sendMessage = () => {
     console.log("Submit");
@@ -66,7 +66,7 @@ export default function ChatScreen({
           }}
           className="flex items-center p-5 gap-3"
         >
-          <label>
+          {/* <label>
             <div className="bg-white size-7 grid place-items-center rounded-full cursor-pointer hover:bg-[#DEDEDE]">
               <Image
                 src={AttachIcon}
@@ -75,7 +75,7 @@ export default function ChatScreen({
               />
             </div>
             <input type="file" className="hidden" />
-          </label>
+          </label> */}
           <textarea
             value={message}
             onKeyDown={(e) => {
