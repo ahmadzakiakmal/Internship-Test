@@ -3,6 +3,8 @@ import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import EditIcon from "@/../public/edit.svg";
+import DropdownIcon from "@/../public/dropdown.png";
+import RoleBadge from "@/components/RoleBadge";
 
 interface Comment {
   id: number;
@@ -21,7 +23,7 @@ interface Room {
   name: string;
   id: number;
   image_url: string;
-  participants: User[];
+  participant: User[];
 }
 
 interface Channel {
@@ -44,7 +46,12 @@ export default function Home() {
               return (
                 <button
                   key={channel.room.id}
-                  className={"size-8 rounded-[5px] overflow-hidden " + (activeChannel == index ? "outline outline-white outline-offset-4" : "hover:outline outline-white/20 outline-offset-4")}
+                  className={
+                    "size-8 rounded-[5px] overflow-hidden " +
+                    (activeChannel == index
+                      ? "outline outline-white outline-offset-4"
+                      : "hover:outline outline-white/20 outline-offset-4")
+                  }
                   onClick={() => {
                     setActiveChannel(index);
                   }}
@@ -69,14 +76,58 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full">
+        <section className="w-full text-[15px]">
           <div className="flex justify-between items-center gap-4 border-b border-white/30 py-5 px-4">
             {channels.length > 0 ? (
               <p className="font-bold">{channels[activeChannel]?.room.name}</p>
             ) : (
               <div className="w-full h-8 bg-[#DEDEDE] animate-pulse rounded-[5px]" />
             )}
-            <button className="bg-white size-7 rounded-full relative grid place-items-center hover:bg-[#DEDEDE]"><Image src={EditIcon} alt="Edit Icon" className="w-[15px] flex-shrink-0 cursor-pointer absolute" /></button>
+            <button className="bg-white size-7 rounded-full relative grid place-items-center hover:bg-[#DEDEDE]">
+              <Image
+                src={EditIcon}
+                alt="Edit Icon"
+                className="w-[15px] flex-shrink-0 cursor-pointer absolute"
+              />
+            </button>
+          </div>
+          <div className="p-4 flex flex-col gap-2">
+            <div className="flex items-center justify-between">
+              Photos
+              <Image src={DropdownIcon} alt="Dropdown" className="w-[10px]" />
+            </div>
+            <div className="flex items-center justify-between">
+              Videos
+              <Image src={DropdownIcon} alt="Dropdown" className="w-[10px]" />
+            </div>
+            <div className="flex items-center justify-between">
+              Links
+              <Image src={DropdownIcon} alt="Dropdown" className="w-[10px]" />
+            </div>
+            <div className="flex items-center justify-between">
+              Files
+              <Image src={DropdownIcon} alt="Dropdown" className="w-[10px]" />
+            </div>
+            <div className="flex items-center justify-between">
+              Settings
+              {/* <Image src={DropdownIcon} alt="Dropdown" className="w-[10px]" /> */}
+            </div>
+          </div>
+          <div className="flex flex-col p-4 gap-2">
+            <p>Participants</p>
+
+            {channels.length > 0 && (
+              <div className="flex flex-col gap-2 text-[12px]">
+                {channels[activeChannel]?.room?.participant?.map((member) => {
+                  return (
+                    <div className="flex items-center gap-2" key={member.id}>
+                      {member.name}
+                      <RoleBadge role={member.role} />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </section>
       </aside>
