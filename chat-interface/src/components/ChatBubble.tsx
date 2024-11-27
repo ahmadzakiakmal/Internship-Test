@@ -18,7 +18,7 @@ export default function ChatBubble({ comment, participants }: Props) {
   const hasImage = comment.type === "image";
   const hasVideo = comment.type === "video";
   return (
-    <main className="w-full text-[12px] text-black flex justify-start py-2">
+    <main className="w-full text-[16px] text-black flex justify-start py-2">
       <div className="">
         <div className="flex">
           <p className={"font-bold " + roleColors[Number(senderDetails?.role)]}>

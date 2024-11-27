@@ -1,5 +1,6 @@
 import AttachIcon from "@/../public/attach.svg";
 import SendIcon from "@/../public/send.svg";
+import MenuIcon from "@/../public/menu.svg";
 import { Comment, User } from "@/data/types";
 import Image from "next/image";
 import { FormEvent, useEffect, useRef, useState } from "react";
@@ -10,13 +11,15 @@ interface Props {
   participants: User[];
   updateComments: (newComment: Comment) => any;
   allowChat: boolean;
+  toggleMobileMenu: () => void;
 }
 
 export default function ChatScreen({
   comments,
   participants,
   updateComments,
-  allowChat = false
+  allowChat = false,
+  toggleMobileMenu
 }: Props) {
   const [message, setMessage] = useState<string>("");
   const [scrollTrigger, setScrollTrigger] = useState<boolean>(false);
@@ -82,6 +85,13 @@ export default function ChatScreen({
             </div>
             <input type="file" className="hidden" />
           </label> */}
+          <button type="button" onClick={toggleMobileMenu} className="sm:hidden bg-white size-7 grid place-items-center rounded-full hover:bg-[#DEDEDE]">
+              <Image
+                src={MenuIcon}
+                alt="Attach File"
+                className="absolute w-[15px]"
+              />
+            </button>
           <textarea
             value={message}
             onKeyDown={(e) => {
