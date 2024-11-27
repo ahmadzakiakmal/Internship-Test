@@ -191,7 +191,7 @@ As instructed, I extended the provided JSON file. This can be accessed in the AP
 }
 ```
 
-I added another room named "Produk B" which contains a message containing an image and a message containing a video (the video is unplayable due to the hosting). There's currently two rooms where we can navigate through the room navigation as mentioned previously.
+I added another room named "Produk B" which contains a message containing an image and a message containing a video (the video may or may not be available due to the limited hosting). There's currently two rooms where we can navigate through the room navigation as mentioned previously.
 
 ## **5. Handling Medias**
 
