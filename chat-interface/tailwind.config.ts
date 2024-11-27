@@ -11,7 +11,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        purple: "#691BF5"
       },
+      fontFamily: {
+        lato: "Lato"
+      }
     },
   },
   plugins: [],
