@@ -1,5 +1,4 @@
 "use client";
-import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import EditIcon from "@/../public/edit.svg";
@@ -14,6 +13,22 @@ export default function Home() {
   useEffect(() => {
     GetData();
   }, []);
+
+  const updateComments = (newComment: any) => {
+    const newChannels = channels.map((channel: Channel) => {
+      const isTheUpdatedChannel =
+        channel.room.id === channels[activeChannel].room.id;
+      if (isTheUpdatedChannel) {
+        channel.comments.push(newComment);
+        return channel
+      } else {
+        return channel
+      }
+    });
+    setChannels(newChannels);
+    console.log(newChannels)
+  };
+
   return (
     <main className="bg-white min-h-screen font-lato flex">
       <aside className="bg-purple w-[320px] min-h-screen flex">
@@ -109,7 +124,11 @@ export default function Home() {
         </section>
       </aside>
 
-      <ChatScreen comments={channels[activeChannel]?.comments} participants={channels[activeChannel]?.room?.participant} />
+      <ChatScreen
+        comments={channels[activeChannel]?.comments}
+        participants={channels[activeChannel]?.room?.participant}
+        updateComments={updateComments}
+      />
     </main>
   );
 
