@@ -37,14 +37,14 @@ export default function Home() {
   }, []);
   return (
     <main className="bg-white min-h-screen font-lato">
-      <aside className="bg-purple w-[320px] min-h-screen flex">
+      <aside className="bg-gradient-to-bl from-purple from-30% to-[#3D108F] w-[320px] min-h-screen flex">
         <section className="flex flex-col py-5 px-4 gap-4 box-border border-r border-white/30 flex-shrink-0">
           {channels.length > 0 &&
             channels.map((channel, index) => {
               return (
                 <button
                   key={channel.room.id}
-                  className={"size-8 rounded-[5px] overflow-hidden " + (activeChannel == index ? "outline outline-white outline-offset-4" : "")}
+                  className={"size-8 rounded-[5px] overflow-hidden " + (activeChannel == index ? "outline outline-white outline-offset-4" : "hover:outline outline-white/20 outline-offset-4")}
                   onClick={() => {
                     setActiveChannel(index);
                   }}
@@ -61,7 +61,7 @@ export default function Home() {
             })}
           <div
             className={
-              "bg-[#DEDEDE] size-8 rounded-[5px] grid place-items-center text-purple text-[20px] " +
+              "bg-[#DEDEDE] size-8 rounded-[5px] grid place-items-center text-purple text-[20px] cursor-pointer hover:opacity-90 " +
               (channels.length <= 0 && "animate-pulse")
             }
           >
