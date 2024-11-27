@@ -39,3 +39,166 @@ The Group entity has a unique identifier `group_id` to distinguish one with anot
 Besides the 3 tables representing the main entities, a fourth table is required to map the membership of groups. I designed it to have a unique identifier `membership_id` as the primary key. Then it will map a user represented by `user_id` to a group with id value of `group_id`. To keep note of when a user joined a group, the `created_at` property is added. Another attribute can be added as a combination of the `user_id` and `group_id` set as UNIQUE. When a new membership is added, we can check this to determine if it is a duplicate or not.
 
 ## 3. Chat Page Interface
+![](./assets/Desktop%20View%201.png)
+
+I designed the chat interface with a simple and clean concept inspired by Slack and Discord. 
+
+I created a room navigation in the most left with room details to view and access medias, links, and room settings besides it (they don't do anything for now). Under these menus, participants of the room are shown along with their role badges.
+
+The main part of the screen is the chat screen. This will show all the messages within the room.
+
+The chat interface I developed can be accessed at [https://internship-test.ahmadzakiakmal.my.id](https://internship-test.ahmadzakiakmal.my.id)
+
+The interface is also screen-responsive and adjusts itself depending on the screen width, the mobile preview is shown in the following image.
+
+![](./assets/Mobile%20View.png)
+
+## 4. JSON Extension
+
+As instructed, I extended the provided JSON file. This can be accessed in the API I created at [https://internship-test.ahmadzakiakmal.my.id/api](https://internship-test.ahmadzakiakmal.my.id/api).
+
+
+```
+{
+    "results": [
+        {
+            "room": {
+                "name": "Product A",
+                "id": 12456,
+                "image_url": "https://picsum.photos/id/237/200/300",
+                "participant": [
+                    {
+                        "id": "admin@mail.com",
+                        "name": "Admin",
+                        "role": 0
+                    },
+                    {
+                        "id": "agent@mail.com",
+                        "name": "Agent A",
+                        "role": 1
+                    },
+                    {
+                        "id": "customer@mail.com",
+                        "name": "king customer",
+                        "role": 2
+                    }
+                ]
+            },
+            "comments": [
+                {
+                    "id": 885512,
+                    "type": "text",
+                    "message": "Selamat malam",
+                    "sender": "customer@mail.com"
+                },
+                {
+                    "id": 885513,
+                    "type": "text",
+                    "message": "Malam",
+                    "sender": "agent@mail.com"
+                },
+                {
+                    "id": 885514,
+                    "type": "text",
+                    "message": "Ada yang bisa saya bantu?",
+                    "sender": "agent@mail.com"
+                },
+                {
+                    "id": 885515,
+                    "type": "text",
+                    "message": "Saya ingin mengirimkan bukti pembayaran, karena diaplikasi selalu gagal",
+                    "sender": "customer@mail.com"
+                },
+                {
+                    "id": 885516,
+                    "type": "text",
+                    "message": "Baik, silahkan kirimkan lampiran bukti pembayarannya",
+                    "sender": "agent@mail.com"
+                }
+            ]
+        },
+        {
+            "room": {
+                "name": "Product B",
+                "id": 12457,
+                "image_url": "https://avatars.githubusercontent.com/u/144903134?s=400&u=1f6f214eb767a4f5abe44162bc741fa2a3b862a0&v=4",
+                "participant": [
+                    {
+                        "id": "admin@mail.com",
+                        "name": "Admin",
+                        "role": 0
+                    },
+                    {
+                        "id": "agent@mail.com",
+                        "name": "Agent A",
+                        "role": 1
+                    },
+                    {
+                        "id": "ahmadzaki@mail.com",
+                        "name": "Ahmad Zaki",
+                        "role": 2
+                    }
+                ]
+            },
+            "comments": [
+                {
+                    "id": 885512,
+                    "type": "text",
+                    "message": "Selamat pagi",
+                    "sender": "ahmadzaki@mail.com"
+                },
+                {
+                    "id": 885513,
+                    "type": "text",
+                    "message": "Pagi, ada yang bisa saya bantu?",
+                    "sender": "agent@mail.com"
+                },
+                {
+                    "id": 885515,
+                    "type": "text",
+                    "message": "Saya ingin mengirimkan bukti pembayaran, karena di aplikasi selalu gagal",
+                    "sender": "ahmadzaki@mail.com"
+                },
+                {
+                    "id": 885516,
+                    "type": "text",
+                    "message": "Baik, silahkan kirimkan lampiran bukti pembayarannya",
+                    "sender": "agent@mail.com"
+                },
+                {
+                    "id": 885517,
+                    "type": "image",
+                    "message": "Berikut bukti pembayarannya",
+                    "sender": "ahmadzaki@mail.com",
+                    "content": "https://avatars.githubusercontent.com/u/144903134?s=400&u=1f6f214eb767a4f5abe44162bc741fa2a3b862a0&v=4"
+                },
+                {
+                    "id": 885518,
+                    "type": "video",
+                    "message": "Ini bukti video yang lebih jelas",
+                    "sender": "ahmadzaki@mail.com",
+                    "content": "https://github.com/ahmadzakiakmal/Internship-Test/raw/refs/heads/main/assets/sample_video.mp4"
+                },
+                {
+                    "id": 885519,
+                    "type": "text",
+                    "message": "Baik, bukti sudah kami terima",
+                    "sender": "agent@mail.com"
+                }
+            ]
+        }
+    ]
+}
+```
+
+I added another room named "Produk B" which contains a message containing an image and a message containing a video (the video is unplayable due to the hosting). There's currently two rooms where we can navigate through the room navigation as mentioned previously.
+
+## **5. Handling Medias**
+
+![](./assets/Desktop%20View%202.png)
+
+I also added handlers to show medias, for now it supports text messages, images, and videos. The preview can be seen above.
+
+We can also send a message (text only for now) as the Admin user, shown below.
+
+![](./assets/Desktop%20View%203.png)
