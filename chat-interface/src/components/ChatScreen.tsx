@@ -1,4 +1,3 @@
-import AttachIcon from "@/../public/attach.svg";
 import SendIcon from "@/../public/send.svg";
 import MenuIcon from "@/../public/menu.svg";
 import { Comment, User } from "@/data/types";
@@ -9,7 +8,7 @@ import ChatBubble from "./ChatBubble";
 interface Props {
   comments: Comment[];
   participants: User[];
-  updateComments: (newComment: Comment) => any;
+  updateComments: (newComment: Comment) => void;
   allowChat: boolean;
   toggleMobileMenu: () => void;
 }
@@ -23,7 +22,6 @@ export default function ChatScreen({
 }: Props) {
   const [message, setMessage] = useState<string>("");
   const [scrollTrigger, setScrollTrigger] = useState<boolean>(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
   const scrollableSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

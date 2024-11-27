@@ -6,7 +6,7 @@ import DropdownIcon from "@/../public/dropdown.png";
 import MenuIcon from "@/../public/menu.svg";
 import RoleBadge from "@/components/RoleBadge";
 import ChatScreen from "@/components/ChatScreen";
-import { Channel } from "@/data/types";
+import { Channel, Comment } from "@/data/types";
 
 export default function Home() {
   const [channels, setChannels] = useState<Channel[]>([]);
@@ -21,7 +21,7 @@ export default function Home() {
     setOpenMobileMenu(!openMobileMenu);
   };
 
-  const updateComments = (newComment: any) => {
+  const updateComments = (newComment: Comment) => {
     const newChannels = channels.map((channel: Channel) => {
       const isTheUpdatedChannel =
         channel.room.id === channels[activeChannel].room.id;
